@@ -1,0 +1,233 @@
+.calendarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+}
+
+.calendarControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+}
+
+.changeMonth {
+  display: flex;
+  align-items: center;
+}
+
+.currentMonth {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  width: 7.125rem;
+  text-align: center;
+}
+
+.previousMonth,
+.nextMonth {
+  background: none !important;
+}
+
+.changeViewMode {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 24.75rem;
+  border-radius: 1rem;
+  border: 0.125rem solid rgba(var(--color-support-light), 1);
+  position: relative;
+}
+
+.changeViewMode::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 0.5rem;
+  height: 2rem;
+  width: calc(24.75rem / 3 - 1rem);
+  z-index: -1;
+  background: rgba(var(--color-support-light), 0.5);
+  transition: left 0.2s ease-in-out;
+}
+
+.changeViewMode.daily::before {
+  left: calc(0.5rem);
+}
+
+.changeViewMode.weekly::before {
+  left: calc(50% - calc(24.75rem / 3 - 1rem) / 2);
+}
+
+.changeViewMode.monthly::before {
+  left: calc(100% - 0.5rem - calc(24.75rem / 3 - 1rem));
+}
+
+.viewModeOption {
+  background: none !important;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0.5rem;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+}
+
+.table.dailyMode {
+  width: 25rem;
+  margin: 0 auto;
+}
+
+.td {
+  background-clip: padding-box;
+  color: rgba(var(--color-support-light), 1);
+  border-radius: 1rem;
+  border: 0.125rem solid currentColor;
+  height: 7.75rem;
+  vertical-align: top;
+}
+
+.today {
+  color: rgba(var(--color-primary-dark), 1);
+}
+
+.unavailableDay {
+  background: rgba(var(--color-support-light), 0.25);
+}
+
+.dayNumber {
+  display: block;
+  width: 100%;
+  text-align: right;
+  padding: 0.5rem 0.5rem 0 0;
+  font-family: "Comfortaa", "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  color: currentColor;
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.table.dailyMode .dayNumber {
+  text-align: center;
+}
+
+.more,
+.event {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: calc(0.25rem - 0.125rem) calc(0.5rem - 0.125rem);
+  min-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: width 0.2s linear, border-color 0.2s linear;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.125rem solid transparent;
+}
+
+.table:not(.dailyMode) .event:hover {
+  width: 200%;
+  z-index: 999;
+  border-radius: 0.25rem;
+}
+
+.unscheduled {
+  background: rgba(var(--color-support-light), 0.25);
+  color: rgba(var(--color-support-dark), 0.75);
+}
+
+.unscheduled:hover {
+  background: linear-gradient(
+      rgba(var(--color-support-light), 0.5),
+      rgba(var(--color-support-light), 0.5)
+    ),
+    #fff;
+  border-color: rgba(var(--color-support-dark), 0.25);
+}
+
+.scheduled {
+  background: rgba(var(--color-primary-light), 0.125);
+  color: rgba(var(--color-primary-dark), 1);
+}
+
+.scheduled:hover {
+  background: linear-gradient(
+      rgba(var(--color-primary-light), 0.25),
+      rgba(var(--color-primary-light), 0.25)
+    ),
+    #fff;
+  border-color: rgba(var(--color-primary-dark), 0.25);
+}
+
+.more {
+  background: none;
+  color: rgba(var(--color-support-dark), 0.75);
+}
+
+.today .more {
+  color: rgba(var(--color-primary-dark), 1);
+}
+
+.notificationDaysListItem .more,
+.table.dailyMode .more {
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Notification */
+
+.notificationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.notificationSubTitle {
+  font-size: 1.5rem;
+  padding-bottom: calc(1.5rem + 0.125rem);
+  position: relative;
+}
+
+.notificationSubTitle::after {
+  content: "";
+  position: absolute;
+  width: 2rem;
+  height: 0.125rem;
+  border-radius: calc(0.125rem / 2);
+  background: rgba(var(--color-support-light), 1);
+  top: calc(100% - calc(0.125rem / 2));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.notificationDaysList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.notificationDaysListItem {
+  color: rgba(var(--color-support-light), 1);
+  border-radius: 1rem;
+  border: 0.125rem solid currentColor;
+  min-height: 7.75rem;
+}
+
+.notificationDaysListItem:first-child {
+  color: rgba(var(--color-primary-dark), 1);
+}
+
+.notificationDaysListItem .dayNumber {
+  text-align: center;
+}
+
+.notificationDaysListItem .event {
+  font-size: 0.625rem;
+  text-transform: uppercase;
+}

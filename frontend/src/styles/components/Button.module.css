@@ -1,0 +1,60 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  min-width: 3rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 1rem;
+  padding: 0 1.5rem;
+  cursor: pointer;
+  background: rgba(var(--color-support-light), 0.5);
+  transition: filter 0.2s ease-in-out;
+}
+
+.button:hover {
+  filter: brightness(0.95) saturate(1.05);
+}
+
+.button:disabled {
+  filter: none;
+  cursor: default;
+}
+
+.iconButton {
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+}
+
+.primaryButton {
+  color: rgba(var(--color-primary-dark), 1);
+  background: rgba(var(--color-primary-light), 0.25);
+}
+
+.specialButton {
+  align-self: center;
+  /* font-weight: 700; */
+  color: rgba(var(--color-white), 1);
+  background: linear-gradient(
+    to bottom right,
+    rgba(var(--color-primary-light), 1) 0%,
+    rgba(var(--color-primary-dark), 1) 50%,
+    rgba(var(--color-primary-dark), 1) 100%
+  );
+  background-size: 200% 200%;
+  transition: background-position 0.4s ease-in-out;
+  background-position: top left;
+}
+
+.specialButton:hover {
+  background-position: bottom right;
+  filter: none;
+}
+
+.deleteButton {
+  color: rgba(var(--color-dangerous-dark), 1);
+  background: rgba(var(--color-dangerous-light), 0.25);
+}

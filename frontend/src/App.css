@@ -1,0 +1,107 @@
+:root {
+  --color-white: 255, 255, 255;
+  --color-support-light: 244, 244, 242;
+  --color-support-dark: 165, 177, 167;
+  --color-primary-dark: 150, 230, 161;
+  --color-primary-light: 212, 252, 121;
+  --color-dangerous-light: 252, 184, 121;
+  --color-dangerous-dark: 240, 117, 117;
+}
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  font: inherit;
+  color: inherit;
+}
+
+/* Global */
+
+body {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: rgba(var(--color-support-dark), 1);
+  background: rgba(var(--color-white), 1);
+}
+
+input,
+textarea,
+select {
+  border-radius: 1rem;
+  border: 0.125rem solid rgba(var(--color-support-light), 1);
+  background: rgba(var(--color-support-light), 0.2);
+  min-height: 3rem;
+  width: 100%;
+  padding: 0 0.75rem;
+  text-align: center;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background: rgba(var(--color-support-light), 0.5);
+}
+
+input[type="date"] {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+  height: 10rem;
+  padding: 0.875rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+a {
+  display: flex;
+  text-decoration: none;
+}
+
+table {
+  border-spacing: 0;
+}
+
+.block-scroll {
+  overflow: hidden;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  text-align: center;
+}
+
+.error {
+  color: rgba(var(--color-dangerous-dark), 1) !important;
+}
+
+.error input,
+.error textarea,
+.error select,
+.error button,
+button.error {
+  border-color: rgba(var(--color-dangerous-dark), 0.5) !important;
+  background: rgba(var(--color-dangerous-dark), 0.1) !important;
+}
+
+/* Container */
+
+.appContainer {
+  padding: 3.75rem 0;
+  min-height: 100vh;
+  max-width: 58.75rem; /* 940px */
+  width: auto;
+  margin: 0 auto;
+}
